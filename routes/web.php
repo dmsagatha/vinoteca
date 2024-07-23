@@ -4,7 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+  ray("Hola desde el archivo web.php");
+  ray(collect([1, 2, 3]));
+
+  return view('welcome');
 });
 
 Route::get('/dashboard', function () {

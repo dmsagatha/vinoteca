@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Attribute;
 use App\Traits\HasSlug;
 use App\Services\UploadService;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use NumberFormatter;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Model;
 
 use function Termwind\style;
 

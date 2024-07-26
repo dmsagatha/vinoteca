@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Attribute;
 use App\Traits\HasSlug;
 use App\Services\UploadService;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {

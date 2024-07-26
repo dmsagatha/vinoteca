@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Services\UploadService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -25,9 +26,33 @@ trait CRUDOperations
         ->paginate($perPage);
   }
 
-  public function create($data);
+  public function create($data): Model
+  {
+    $image = UploadService::upload(data_get($data, 'image'), strtolower(class_basename($this->model)));
+
+    return $this->model::create(array_merge($data, ['image' => $image]));
+  }
   
-  public function update($data, Category $category);
+  public function update($data, Model $model): Model
+  {
+    if (data_get($data, 'image')) {
+      UploadService::delete($model->image);
+      data_set(
+        $data, 
+        'image', 
+        UploadService::upload(data_get($data, 'image'), strtolower(class_basename($this->model)));
+      );
+    }
+
+    $model->update($data);
+
+    return $model;
+  }
   
-  public function delete(Category $category);
+  public function delete(Model $model): ?bool
+  {
+    UploadService::delete($model->image);
+
+    return $model->delete();
+  }
 }

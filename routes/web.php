@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth', 'verified']], function ()
 
   Route::resource('wines', WineController::class)->except('show');
 
-  Route::prefix('compras')->name('shop.')->controller(ShopController::class)->group(function () {
+  Route::prefix('tienda')->name('shop.')->controller(ShopController::class)->group(function () {
     Route::get('/', 'index')->name('index');
     Route::post('adicionar-al-carro', 'addCart')->name('addCart');
     Route::post('incrementar', 'increment')->name('increment');

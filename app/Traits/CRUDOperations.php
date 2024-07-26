@@ -40,7 +40,7 @@ trait CRUDOperations
       data_set(
         $data, 
         'image', 
-        UploadService::upload(data_get($data, 'image'), strtolower(class_basename($this->model)));
+        UploadService::upload(data_get($data, 'image'), strtolower(class_basename($this->model)))
       );
     }
 

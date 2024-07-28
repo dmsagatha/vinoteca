@@ -61,11 +61,14 @@ services:
     
     buggregator:
       image: ghcr.io/buggregator/server:latest
+      #image: butschster/buggregator:latest
       ports:
         - 127.0.0.1:8000:8000
         - 127.0.0.1:1026:1026
         - 127.0.0.1:9912:9912
         - 127.0.0.1:9913:9913
+      networks:
+        - sail
   
 networks:
     sail:

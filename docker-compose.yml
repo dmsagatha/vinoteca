@@ -60,8 +60,8 @@ services:
             timeout: 5s
     
     buggregator:
-      image: ghcr.io/buggregator/server:latest
-      #image: butschster/buggregator:latest
+      # image: ghcr.io/buggregator/server:latest
+      image: butschster/buggregator:latest
       ports:
         - 127.0.0.1:8000:8000
         - 127.0.0.1:1026:1026

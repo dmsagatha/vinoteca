@@ -2,12 +2,12 @@
 
 namespace App\Repositories\Category;
 
+use App\Models\Category;
+use App\Traits\CRUDOperations;
+
 class EloquentCategoryRepository implements CategoryRepositoryInterface
 {
-  /**
-   * Create a new class instance.
-   */
-  public function __construct()
-  {
-  }
+  use CRUDOperations;
+
+  protected string $model = Category::class;
 }

@@ -6,7 +6,7 @@ use App\Models\Category;
 
 interface CategoryRepositoryInterface
 {
-  public function model($slug = null): Category;
+  public function model($slug = null);
 
   public function paginate($counts = [], $relationships = [], $perPage = 10);
 

@@ -9,35 +9,33 @@ use {{ namespacedParentModel }};
 
 class {{ class }} extends Controller
 {
-    /**
-     * Store the newly created resource in storage.
-     */
-    public function store(Request $request, {{ parentModel }} ${{ parentModelVariable }}): never
-    {
-        abort(404);
-    }
+  /**
+  * Store the newly created resource in storage.
+  */
+  public function store(Request $request, {{ parentModel }} ${{ parentModelVariable }}): never
+  {
+    abort(404);
+  }
 
-    /**
-     * Display the resource.
-     */
-    public function show({{ parentModel }} ${{ parentModelVariable }})
-    {
-        //
-    }
+  /**
+  * Display the resource.
+  */
+  public function show({{ parentModel }} ${{ parentModelVariable }})
+  {
+  }
 
-    /**
-     * Update the resource in storage.
-     */
-    public function update(Request $request, {{ parentModel }} ${{ parentModelVariable }})
-    {
-        //
-    }
+  /**
+  * Update the resource in storage.
+  */
+  public function update(Request $request, {{ parentModel }} ${{ parentModelVariable }})
+  {
+  }
 
-    /**
-     * Remove the resource from storage.
-     */
-    public function destroy({{ parentModel }} ${{ parentModelVariable }}): never
-    {
-        abort(404);
-    }
+  /**
+  * Remove the resource from storage.
+  */
+  public function destroy({{ parentModel }} ${{ parentModelVariable }}): never
+  {
+    abort(404);
+  }
 }

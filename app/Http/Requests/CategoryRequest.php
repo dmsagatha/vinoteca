@@ -11,7 +11,7 @@ class CategoryRequest extends FormRequest
   */
   public function authorize(): bool
   {
-    return false;
+    return true;
   }
 
   /**
@@ -22,6 +22,24 @@ class CategoryRequest extends FormRequest
   public function rules(): array
   {
     return [
+      'name' => 'required|string|max:255',
+      'description' => 'required|string|max:2000',
+      'image' => 'sometimes|image|mimes:jpeg,jpg,png|max:2048',
+    ];
+  }
+
+  public function messages()
+  {
+    return [
+      'name.required' => 'La categoría es requerida',
+      'name.string' => 'La categoría debe ser un texto',
+      'name.max' => 'La categoría no debe exceder los :max caracteres',
+      'description.required' => 'La descripción es requerida',
+      'description.string' => 'La descripción debe ser un texto',
+      'description.max' => 'La descripción no debe exceder los :max caracteres',
+      'image.required' => 'El archivo debe ser una imagen',
+      'image.string' => 'La imagen debe ser de tip: jpeg, jpg, png',
+      'image.max' => 'La imagen no debe exceder los :max kilobytes',
     ];
   }
 }

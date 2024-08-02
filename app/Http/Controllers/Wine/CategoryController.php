@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Wine;
 
-use App\Http\Controllers\Controller;
-use App\Repositories\Category\CategoryRepositoryInterface;
+use App\Models\Category;
 use Illuminate\View\View;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\CategoryRequest;
+use App\Repositories\Category\CategoryRepositoryInterface;
 
 class CategoryController extends Controller
 {
@@ -32,6 +35,29 @@ class CategoryController extends Controller
       'action' => route('categories.store'),
       'method' => 'POST',
       'submit' => 'Crear'
+    ]);
+  }
+
+  public function store(CategoryRequest $request): RedirectResponse
+  {
+    // ray($request->all());
+
+    $this->repository->create($request->validated());
+
+    session()->flash('success', 'Categoría creada con éxito');
+
+    return redirect()->route('categories.index');
+  }
+
+  public function edit(Category $category): View
+  {
+    // rd($category);
+    
+    return view('wine.category.edit', [
+      'category' => $category,
+      'action' => route('categories.update', $category),
+      'method' => 'PUT',
+      'submit' => 'Actualizar'
     ]);
   }
 }

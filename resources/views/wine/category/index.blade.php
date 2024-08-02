@@ -20,7 +20,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
               @foreach ($categories as $category)
                 <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 relative">
-                  <img src="" alt="" 
+                  <img
                     class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
                     src="{{ $category->image_url }}"
                     alt="{{ $category->name }}"
@@ -34,7 +34,7 @@
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 pb-5">{{ $category->description }}</p>
                     <div class="absolute bottom-0 right-0 p-4 flex justify-between">
                       <a 
-                        href="{{ route('categories.edit') }}"
+                        href="{{ route('categories.edit', $category->slug) }}"
                         class="bg-purple-500 hover:bg-purple-700 text-white font-bold p-1 rounded mb-2 md:mb-0 text-center"
                       >
                         Editar

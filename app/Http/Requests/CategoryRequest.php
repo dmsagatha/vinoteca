@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CategoryRequest extends FormRequest
 {
@@ -31,7 +32,10 @@ class CategoryRequest extends FormRequest
     }
 
     return [
-      'name' => 'required|string|max:255',
+      'name' => [
+        'required', 'string', 'max:255',
+        Rule::unique('categories', 'name')->ignore($this->route('category'))
+      ],
       'description' => 'required|string|max:2000',
       'image' => $imageRules,
     ];
@@ -43,6 +47,7 @@ class CategoryRequest extends FormRequest
       'name.required' => 'La categoría es requerida',
       'name.string' => 'La categoría debe ser un texto',
       'name.max' => 'La categoría no debe exceder los :max caracteres',
+      'name.unique' => 'La categoría ya existe',
       'description.required' => 'La descripción es requerida',
       'description.string' => 'La descripción debe ser un texto',
       'description.max' => 'La descripción no debe exceder los :max caracteres',

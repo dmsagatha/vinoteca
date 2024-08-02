@@ -53,10 +53,10 @@
               @endforeach
             </div>
           @else
-          <p class="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <strong class="font-bold">¡Lo siento!</strong>
-            <span class="block sm:inline">No hay categorías de vinos creadas.</span>
-          </p>
+            <p class="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+              <strong class="font-bold">¡Lo siento!</strong>
+              <span class="block sm:inline">No hay categorías de vinos creadas.</span>
+            </p>
           @endif
         </div>
       </div>

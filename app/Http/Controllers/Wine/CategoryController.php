@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Wine;
 
 use App\Models\Category;
 use Illuminate\View\View;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\CategoryRequest;
 use App\Repositories\Category\CategoryRepositoryInterface;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {

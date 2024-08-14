@@ -71,4 +71,16 @@ class CategoryController extends Controller
 
     return redirect()->route('categories.index');
   }
+
+  public function destroy(Category $category): RedirectResponse
+  {
+    try {
+      $this->repository->delete($category);
+      session()->flash('success', 'Categoría eliminada con éxito');
+    } catch (\Exception $exception) {
+      session()->flash('error', $exception->getMessage());
+    }
+
+    return redirect()->route('categories.index');
+  }
 }

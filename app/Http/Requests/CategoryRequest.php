@@ -53,7 +53,7 @@ class CategoryRequest extends FormRequest
       'description.max' => 'La descripción no debe exceder los :max caracteres',
       'image.required' => 'La imagen es requerida',
       'image.image' => 'El archivo debe ser una imagen',
-      'image.string' => 'La imagen debe ser de tip: jpeg, jpg, png',
+      'image.mimes' => 'La imagen debe ser de tipo: jpeg, jpg, png',
       'image.max' => 'La imagen no debe exceder los :max kilobytes',
     ];
   }

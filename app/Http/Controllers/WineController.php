@@ -44,8 +44,6 @@ class WineController extends Controller
 
   public function edit(Wine $wine): View
   {
-    // rd($wine);
-    
     return view('wine.edit', [
       'wine' => $wine,
       'action' => route('wines.update', $wine),
@@ -56,8 +54,6 @@ class WineController extends Controller
 
   public function update(WineRequest $request, Wine $wine): RedirectResponse
   {
-    // ray($request->all());
-
     $this->repository->update($request->validated(), $wine);
 
     session()->flash('success', 'Vino actualizado con éxito');

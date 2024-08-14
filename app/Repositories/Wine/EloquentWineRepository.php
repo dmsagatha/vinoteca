@@ -5,7 +5,7 @@ namespace App\Repositories\Wine;
 use App\Models\Wine;
 use App\Traits\CRUDOperations;
 
-class EloquentWineRepository
+class EloquentWineRepository implements WineRepositoryInterface
 {
   use CRUDOperations;
 

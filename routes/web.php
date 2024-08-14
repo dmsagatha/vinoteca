@@ -34,7 +34,10 @@ Route::group(['middleware' => ['auth', 'verified']], function ()
     ->names('categories')
     ->except('show');
 
-  Route::resource('wines', WineController::class)->except('show');
+  Route::resource('vinos', WineController::class)
+    ->parameters(['vinos' => 'wine'])
+    ->names('wines')
+    ->except('show');
 
   Route::prefix('tienda')->name('shop.')->controller(ShopController::class)->group(function () {
     Route::get('/', 'index')->name('index');

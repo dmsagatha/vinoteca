@@ -13,7 +13,7 @@
             href="{{ route('categories.create') }}"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
-            {{ __('Crear Categorías') }}
+            {{ __('Crear Categoría') }}
           </a>
 
           @if ($categories->isNotEmpty())

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Wine;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\WineRequest;
+use Illuminate\Http\RedirectResponse;
 use App\Repositories\Wine\WineRepositoryInterface;
 use App\Http\Controllers\Controller;
 
@@ -35,11 +35,9 @@ class WineController extends Controller
 
   public function store(WineRequest $request): RedirectResponse
   {
-    // ray($request->all());
-
     $this->repository->create($request->validated());
 
-    session()->flash('success', 'Categoría creada con éxito');
+    session()->flash('success', 'Vino creado con éxito');
 
     return redirect()->route('wines.index');
   }
@@ -62,7 +60,7 @@ class WineController extends Controller
 
     $this->repository->update($request->validated(), $wine);
 
-    session()->flash('success', 'Categoría actualizada con éxito');
+    session()->flash('success', 'Vino actualizado con éxito');
 
     return redirect()->route('wines.index');
   }
@@ -71,7 +69,7 @@ class WineController extends Controller
   {
     try {
       $this->repository->delete($wine);
-      session()->flash('success', 'Categoría eliminada con éxito');
+      session()->flash('success', 'Vino eliminado con éxito');
     } catch (\Exception $exception) {
       session()->flash('error', $exception->getMessage());
     }

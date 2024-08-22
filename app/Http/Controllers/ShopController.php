@@ -16,7 +16,9 @@ class ShopController extends Controller
 
   public function index(): View
   {
-    ray()->showQueries();
+    // ray()->countQueries(fn () => $this->repository->paginate());
+    // ray()->showQueries();
+    // ray()->showDuplicateQueries();
     $wines = $this->repository->paginate();
 
     return view('shop.index', compact('wines'));

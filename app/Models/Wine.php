@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 
-use function Termwind\style;
-
 class Wine extends Model
 {
   use HasSlug;
@@ -22,7 +20,7 @@ class Wine extends Model
   protected function casts(): array
   {
     return [
-      'year' => 'integer',
+      'year'  => 'integer',
       'price' => 'decimal:2',
       'stock' => 'integer',
     ];

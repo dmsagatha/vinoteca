@@ -36,7 +36,7 @@ class WineRequest extends FormRequest
       'description' => ['required', 'string', 'max:2000'],
       'category_id' => ['required', 'exists:categories,id'],
       'year' => ['required', 'integer', 'min:' .  now()->subYears(value: 100)->year, 'max:' . now()->year],
-      'priece' => ['required', 'numeric', 'min:0'],
+      'price' => ['required', 'numeric', 'min:0'],
       'stock' => ['required', 'integer', 'min:0'],
       'image' => $imageRules,
     ];

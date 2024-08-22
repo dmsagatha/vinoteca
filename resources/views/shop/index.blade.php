@@ -15,7 +15,7 @@
             <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 relative">
               <x-wine-image :wine="$wine"/>
 
-              <div class="flex flex-col p-4 leading-normal">
+              <div class="flex flex-col p-4 leading-normal teo6">
                 @if ($cart->hasProduct($wine))
                   <div class="bg-green-500 text-white text-xs font-bold uppercase px-5 py-2 mb-2 rounded-full">
                     <p class="font-normal mb-2">

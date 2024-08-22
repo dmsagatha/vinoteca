@@ -44,6 +44,6 @@ trait CartActions
   public function clearCart(): void
   {
     $this->cart->clear();
-    session()->flash('success', 'El carrito esta vacio');
+    session()->flash('success', 'El carrito ha sido vaciado');
   }
 }

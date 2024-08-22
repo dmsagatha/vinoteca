@@ -12,7 +12,9 @@ class ShopController extends Controller
 {
   use CartActions;
 
-  public function __construct(private readonly ShopRepositoryInterface $repository, private readonly Cart $cart) {}
+  public function __construct(private readonly ShopRepositoryInterface $repository, private readonly Cart $cart) {
+    ray($this->cart->getCart());
+  }
 
   public function index(): View
   {

@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth', 'verified']], function ()
 
   Route::prefix('tienda')->name('shop.')->controller(ShopController::class)->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::post('adicionar-al-carro', 'addCart')->name('addCart');
+    Route::post('adicionar-al-carro', 'addToCart')->name('addToCart');
     Route::post('incrementar', 'increment')->name('increment');
     Route::post('decrementar', 'decrement')->name('decrement');
     Route::post('eliminar', 'remove')->name('remove');

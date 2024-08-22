@@ -26,7 +26,7 @@ class WineController extends Controller
   public function create(): View
   {
     return view('wine.create', [
-      'wine' => $this->repository->model(),
+      'wine'   => $this->repository->model(),
       'action' => route('wines.store'),
       'method' => 'POST',
       'submit' => 'Crear'
@@ -45,7 +45,7 @@ class WineController extends Controller
   public function edit(Wine $wine): View
   {
     return view('wine.edit', [
-      'wine' => $wine,
+      'wine'   => $wine,
       'action' => route('wines.update', $wine),
       'method' => 'PUT',
       'submit' => 'Actualizar'

@@ -35,6 +35,33 @@
 
                 <x-wine-info :wine="$wine" />
               </div>
+
+              <div class="absolute bottom-0 right-0 p-4 flex justify-between">
+                @if (! $cart->hasProduct($wine))
+                  <x-cart-adder
+                    :wine="$wine"
+                    :action="route('shop.addToCart')"
+                  />
+                  @else
+                    <div class="flex">
+                      <x-cart-incrementor
+                        :item="$wine"
+                        :action="route('shop.increment')"
+                        hidden_key="id"
+                      />
+                      <x-cart-decrementor
+                        :item="$wine"
+                        :action="route('shop.decrement')"
+                        hidden_key="id"
+                      />
+                      <x-cart-remover
+                        :item="$wine"
+                        :action="route('shop.remove')"
+                        hidden_key="id"
+                      />
+                    </div>
+                @endif
+              </div>
             </div>
           @endforeach
         </div>

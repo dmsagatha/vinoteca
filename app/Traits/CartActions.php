@@ -20,6 +20,7 @@ trait CartActions
   public function incrementProductQuantity(): void
   {
     $wine = $this->repository->find(request('wine_id'));
+    
     try {
       $this->cart->increment($wine);
       session()->flash('success', 'Cantidad incrementada');

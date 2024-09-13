@@ -50,5 +50,37 @@
         {{ $slot }}
       </main>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript">  
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+        
+      $(".send-email").click(function(){
+          var selectRowsCount = $("input[class='user-checkbox']:checked").length;
+    
+          if (selectRowsCount > 0) {    
+              var ids = $.map($("input[class='user-checkbox']:checked"), function(c){return c.value; });
+    
+              $.ajax({
+                 type:'POST',
+                 url:"{{ route('send.emails') }}",
+                 data:{ids:ids},
+                 success:function(data){
+                    alert(data.success);
+                 }
+              });
+    
+          }else{
+              alert("Please select at least one user from list.");
+          }
+          console.log(selectRowsCount);
+      });
+    
+  </script>
   </body>
 </html>

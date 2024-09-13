@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Wine\CategoryController;
 use App\Http\Controllers\WineController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -54,4 +55,13 @@ Route::group(['middleware' => ['auth', 'verified']], function ()
     Route::post('eliminar', 'remove')->name('remove');
     Route::post('limpiar', 'clear')->name('clear');
   });
+
+  /* Route::prefix('usuarios')->name('emails.')->controller(UserController::class)->group(function () {
+    Route::post('enviar-correos', 'sendEmails')->name('send.emails');
+  }); */
+  
+  // Route::post('/send-emails', [UserController::class, 'sendEmails'])->name('send.emails');
+
+  Route::get('usuarios', [UserController::class, 'index'])->name('users.index');
+  Route::post('usuarios/enviar-correos', [UserController::class, 'sendEmails'])->name('send.emails');
 });
